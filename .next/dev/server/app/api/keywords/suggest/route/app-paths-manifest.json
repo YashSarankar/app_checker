@@ -1,0 +1,3 @@
+{
+  "/api/keywords/suggest/route": "app/api/keywords/suggest/route.js"
+}

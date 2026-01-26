@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 280, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/yashs/development/app_checker/src/app/api/apps/developer/route.js"],"sourcesContent":["import gplay from 'google-play-scraper';\r\nimport { NextResponse } from 'next/server';\r\n\r\nexport async function GET(request) {\r\n    const { searchParams } = new URL(request.url);\r\n    const devId = searchParams.get('devId');\r\n\r\n    if (!devId) return NextResponse.json([], { status: 400 });\r\n\r\n    try {\r\n        const results = await gplay.developer({ devId });\r\n        return NextResponse.json(results);\r\n    } catch (error) {\r\n        console.error('Developer portfolio error:', error);\r\n        return NextResponse.json([]);\r\n    }\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;AACA;;;AAEO,eAAe,IAAI,OAAO;IAC7B,MAAM,EAAE,YAAY,EAAE,GAAG,IAAI,IAAI,QAAQ,GAAG;IAC5C,MAAM,QAAQ,aAAa,GAAG,CAAC;IAE/B,IAAI,CAAC,OAAO,OAAO,gJAAY,CAAC,IAAI,CAAC,EAAE,EAAE;QAAE,QAAQ;IAAI;IAEvD,IAAI;QACA,MAAM,UAAU,MAAM,+JAAK,CAAC,SAAS,CAAC;YAAE;QAAM;QAC9C,OAAO,gJAAY,CAAC,IAAI,CAAC;IAC7B,EAAE,OAAO,OAAO;QACZ,QAAQ,KAAK,CAAC,8BAA8B;QAC5C,OAAO,gJAAY,CAAC,IAAI,CAAC,EAAE;IAC/B;AACJ"}}]
+}

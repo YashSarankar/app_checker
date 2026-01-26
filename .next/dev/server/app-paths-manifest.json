@@ -1,3 +1,12 @@
 {
-  "/page": "app/page.js"
+  "/api/apps/charts/route": "app/api/apps/charts/route.js",
+  "/api/apps/details/route": "app/api/apps/details/route.js",
+  "/api/apps/developer/route": "app/api/apps/developer/route.js",
+  "/api/apps/reviews/route": "app/api/apps/reviews/route.js",
+  "/api/apps/search/route": "app/api/apps/search/route.js",
+  "/api/apps/similar/route": "app/api/apps/similar/route.js",
+  "/api/keywords/route": "app/api/keywords/route.js",
+  "/api/keywords/suggest/route": "app/api/keywords/suggest/route.js",
+  "/page": "app/page.js",
+  "/tracker/page": "app/tracker/page.js"
 }

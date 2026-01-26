@@ -2,37 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 15, 23, 42;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+    :root {
+        /* Default Dark Mode (Minimal) */
+        --bg-main: #05070a;
+        --text-main: #f8fafc;
+        --text-muted: #64748b;
+        --card-bg: rgba(255, 255, 255, 0.02);
+        --card-border: rgba(255, 255, 255, 0.05);
+        --input-bg: rgba(255, 255, 255, 0.03);
+        --accent: #2563eb;
+    }
+
+    .light-mode {
+        /* Minimal Light Mode */
+        --bg-main: #ffffff;
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --card-bg: rgba(0, 0, 0, 0.02);
+        --card-border: rgba(0, 0, 0, 0.05);
+        --input-bg: rgba(0, 0, 0, 0.03);
+        --accent: #2563eb;
+    }
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    background: rgb(var(--background-start-rgb));
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color 0.5s ease, color 0.5s ease;
     min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-}
-
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: -1;
+    font-feature-settings: "rlig" 1, "calt" 1;
 }
 
 @layer components {
     .glass-card {
-        @apply bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-3xl p-6 transition-all hover:bg-white/5 hover:border-white/10 hover:shadow-2xl hover:shadow-primary/10;
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        @apply rounded-xl transition-all duration-300;
+    }
+
+    .glass-card:hover {
+        border-color: var(--accent);
+        @apply shadow-lg shadow-blue-500/5;
+    }
+
+    .pro-input {
+        background: var(--input-bg);
+        border: 1px solid var(--card-border);
+        color: var(--text-main);
+        @apply w-full rounded-xl px-4 py-3 text-sm outline-none transition-all placeholder:text-slate-400;
+    }
+
+    .pro-input:focus {
+        border-color: var(--accent);
+        background: transparent;
+    }
+
+    .pro-button {
+        @apply bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2.5 rounded-xl transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 }

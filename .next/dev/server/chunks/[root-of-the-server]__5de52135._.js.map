@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 280, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/yashs/development/app_checker/src/app/api/keywords/suggest/route.js"],"sourcesContent":["import gplay from 'google-play-scraper';\r\nimport { NextResponse } from 'next/server';\r\n\r\nexport async function GET(request) {\r\n    const { searchParams } = new URL(request.url);\r\n    const term = searchParams.get('term');\r\n\r\n    if (!term) return NextResponse.json([]);\r\n\r\n    try {\r\n        const results = await gplay.suggest({ term });\r\n        return NextResponse.json(results);\r\n    } catch (error) {\r\n        console.error('Suggest error:', error);\r\n        return NextResponse.json([]);\r\n    }\r\n}\r\n"],"names":[],"mappings":";;;;AAAA;AACA;;;AAEO,eAAe,IAAI,OAAO;IAC7B,MAAM,EAAE,YAAY,EAAE,GAAG,IAAI,IAAI,QAAQ,GAAG;IAC5C,MAAM,OAAO,aAAa,GAAG,CAAC;IAE9B,IAAI,CAAC,MAAM,OAAO,gJAAY,CAAC,IAAI,CAAC,EAAE;IAEtC,IAAI;QACA,MAAM,UAAU,MAAM,+JAAK,CAAC,OAAO,CAAC;YAAE;QAAK;QAC3C,OAAO,gJAAY,CAAC,IAAI,CAAC;IAC7B,EAAE,OAAO,OAAO;QACZ,QAAQ,KAAK,CAAC,kBAAkB;QAChC,OAAO,gJAAY,CAAC,IAAI,CAAC,EAAE;IAC/B;AACJ"}}]
+}

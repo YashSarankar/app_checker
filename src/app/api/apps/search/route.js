@@ -4,15 +4,15 @@ import { NextResponse } from 'next/server';
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const term = searchParams.get('term');
-
-    if (!term) {
-        return NextResponse.json({ error: 'Term is required' }, { status: 400 });
-    }
+    const country = searchParams.get('country') || 'us';
+    const lang = searchParams.get('lang') || 'en';
 
     try {
         const results = await gplay.search({
             term,
-            num: 10,
+            num: 15,
+            country,
+            lang
         });
         return NextResponse.json(results);
     } catch (error) {
