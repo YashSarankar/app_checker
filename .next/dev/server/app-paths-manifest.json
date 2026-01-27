@@ -1,4 +1,5 @@
 {
+  "/add-app/page": "app/add-app/page.js",
   "/api/apps/charts/route": "app/api/apps/charts/route.js",
   "/api/apps/details/route": "app/api/apps/details/route.js",
   "/api/apps/developer/route": "app/api/apps/developer/route.js",

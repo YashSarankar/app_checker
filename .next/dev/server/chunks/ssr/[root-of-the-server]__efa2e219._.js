@@ -114,26 +114,10 @@ __turbopack_context__.s([
     "getTimeBasedTheme",
     ()=>getTimeBasedTheme
 ]);
-const getTimeBasedTheme = (countryCode)=>{
-    const timezones = {
-        'us': 'America/New_York',
-        'in': 'Asia/Kolkata',
-        'gb': 'Europe/London',
-        'ca': 'America/Toronto',
-        'au': 'Australia/Sydney',
-        'de': 'Europe/Berlin',
-        'fr': 'Europe/Paris',
-        'br': 'America/Sao_Paulo'
-    };
+const getTimeBasedTheme = ()=>{
     try {
-        const zone = timezones[countryCode?.toLowerCase()] || 'UTC';
-        // Get current hour in that timezone
-        const date = new Date().toLocaleString("en-US", {
-            timeZone: zone,
-            hour: 'numeric',
-            hour12: false
-        });
-        const hour = parseInt(date);
+        // Just use the system local time
+        const hour = new Date().getHours();
         // Light mode between 6 AM (6) and 6 PM (18)
         return hour >= 6 && hour < 18 ? 'light' : 'dark';
     } catch (e) {
@@ -172,48 +156,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$theme$2e$js_
 ;
 ;
 ;
-const countries = [
-    {
-        code: 'us',
-        name: 'United States',
-        flag: '🇺🇸'
-    },
-    {
-        code: 'in',
-        name: 'India',
-        flag: '🇮🇳'
-    },
-    {
-        code: 'gb',
-        name: 'United Kingdom',
-        flag: '🇬🇧'
-    },
-    {
-        code: 'ca',
-        name: 'Canada',
-        flag: '🇨🇦'
-    },
-    {
-        code: 'au',
-        name: 'Australia',
-        flag: '🇦🇺'
-    },
-    {
-        code: 'de',
-        name: 'Germany',
-        flag: '🇩🇪'
-    },
-    {
-        code: 'fr',
-        name: 'France',
-        flag: '🇫🇷'
-    },
-    {
-        code: 'br',
-        name: 'Brazil',
-        flag: '🇧🇷'
-    }
-];
 ;
 function TrackerContent() {
     const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useSearchParams"])();
@@ -221,12 +163,9 @@ function TrackerContent() {
     const initialTitle = searchParams.get('title');
     const initialIcon = searchParams.get('icon');
     const initialDeveloper = searchParams.get('developer');
-    const initialCountry = searchParams.get('country') || 'us';
-    const selectedCountry = countries.find((c)=>c.code === initialCountry);
     const [keyword, setKeyword] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('');
     const [isCheckingRank, setIsCheckingRank] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [rankResult, setRankResult] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [country, setCountry] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(initialCountry);
     const [appDetails, setAppDetails] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [isLoadingDetails, setIsLoadingDetails] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [history, setHistory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
@@ -235,10 +174,10 @@ function TrackerContent() {
     const [developerApps, setDeveloperApps] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const [isLoadingExtra, setIsLoadingExtra] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [activeTab, setActiveTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('similar');
-    // Theme Management
+    // Theme Management - Local Time
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         const updateTheme = ()=>{
-            const theme = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$theme$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getTimeBasedTheme"])(country);
+            const theme = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$theme$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getTimeBasedTheme"])();
             if (theme === 'light') {
                 document.body.classList.add('light-mode');
             } else {
@@ -248,9 +187,7 @@ function TrackerContent() {
         updateTheme();
         const interval = setInterval(updateTheme, 60000);
         return ()=>clearInterval(interval);
-    }, [
-        country
-    ]);
+    }, []);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
         if (appId) {
             fetchAppDetails();
@@ -272,7 +209,7 @@ function TrackerContent() {
     const fetchAppDetails = async ()=>{
         setIsLoadingDetails(true);
         try {
-            const { data } = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get(`/api/apps/details?appId=${appId}&country=${country}`);
+            const { data } = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].get(`/api/apps/details?appId=${appId}`);
             setAppDetails(data);
         } catch (error) {
             console.error('Failed to fetch details');
@@ -319,10 +256,10 @@ function TrackerContent() {
         setIsCheckingRank(true);
         setRankResult(null);
         try {
+            // No country param passed, backend will default (usually 'us')
             const { data } = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].post('/api/keywords', {
                 appId,
-                term: termToCheck,
-                country
+                term: termToCheck
             });
             setRankResult(data);
             saveToHistory(data);
@@ -339,7 +276,7 @@ function TrackerContent() {
                 className: "w-10 h-10 mb-4 opacity-50"
             }, void 0, false, {
                 fileName: "[project]/src/app/tracker/page.js",
-                lineNumber: 158,
+                lineNumber: 144,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -347,7 +284,7 @@ function TrackerContent() {
                 children: "Access Denied: No App Selected"
             }, void 0, false, {
                 fileName: "[project]/src/app/tracker/page.js",
-                lineNumber: 159,
+                lineNumber: 145,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -356,13 +293,13 @@ function TrackerContent() {
                 children: "Return Home"
             }, void 0, false, {
                 fileName: "[project]/src/app/tracker/page.js",
-                lineNumber: 160,
+                lineNumber: 146,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/tracker/page.js",
-        lineNumber: 157,
+        lineNumber: 143,
         columnNumber: 9
     }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -379,7 +316,7 @@ function TrackerContent() {
                                 className: "w-20 h-20 rounded-2xl shadow-sm bg-[var(--input-bg)]"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/tracker/page.js",
-                                lineNumber: 169,
+                                lineNumber: 155,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -392,14 +329,14 @@ function TrackerContent() {
                                                 className: "w-4 h-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 172,
+                                                lineNumber: 158,
                                                 columnNumber: 29
                                             }, this),
                                             " Back"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 171,
+                                        lineNumber: 157,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -407,7 +344,7 @@ function TrackerContent() {
                                         children: appDetails?.title || initialTitle
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 174,
+                                        lineNumber: 160,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -415,19 +352,19 @@ function TrackerContent() {
                                         children: appDetails?.developer || initialDeveloper
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 175,
+                                        lineNumber: 161,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/tracker/page.js",
-                                lineNumber: 170,
+                                lineNumber: 156,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/tracker/page.js",
-                        lineNumber: 168,
+                        lineNumber: 154,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -441,7 +378,7 @@ function TrackerContent() {
                                         children: "Rating"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 181,
+                                        lineNumber: 167,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -451,7 +388,7 @@ function TrackerContent() {
                                                 className: "w-4 h-4 text-yellow-500 fill-yellow-500"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 183,
+                                                lineNumber: 169,
                                                 columnNumber: 29
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -459,19 +396,19 @@ function TrackerContent() {
                                                 children: appDetails?.score?.toFixed(1) || '0.0'
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 184,
+                                                lineNumber: 170,
                                                 columnNumber: 29
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 182,
+                                        lineNumber: 168,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/tracker/page.js",
-                                lineNumber: 180,
+                                lineNumber: 166,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -482,7 +419,7 @@ function TrackerContent() {
                                         children: "Installs"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 188,
+                                        lineNumber: 174,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -492,7 +429,7 @@ function TrackerContent() {
                                                 className: "w-4 h-4 text-emerald-500"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 190,
+                                                lineNumber: 176,
                                                 columnNumber: 29
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -500,31 +437,31 @@ function TrackerContent() {
                                                 children: appDetails?.installs || 'N/A'
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 191,
+                                                lineNumber: 177,
                                                 columnNumber: 29
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 189,
+                                        lineNumber: 175,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/tracker/page.js",
-                                lineNumber: 187,
+                                lineNumber: 173,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/tracker/page.js",
-                        lineNumber: 179,
+                        lineNumber: 165,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/tracker/page.js",
-                lineNumber: 167,
+                lineNumber: 153,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -543,14 +480,14 @@ function TrackerContent() {
                                                 className: "w-5 h-5 text-[var(--accent)]"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 204,
+                                                lineNumber: 190,
                                                 columnNumber: 29
                                             }, this),
                                             " Keyword Tracking"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 203,
+                                        lineNumber: 189,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -568,7 +505,7 @@ function TrackerContent() {
                                                         onChange: (e)=>setKeyword(e.target.value)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/tracker/page.js",
-                                                        lineNumber: 209,
+                                                        lineNumber: 195,
                                                         columnNumber: 33
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -579,18 +516,18 @@ function TrackerContent() {
                                                             className: "w-5 h-5 animate-spin"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/tracker/page.js",
-                                                            lineNumber: 221,
+                                                            lineNumber: 207,
                                                             columnNumber: 55
                                                         }, this) : "Check"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/tracker/page.js",
-                                                        lineNumber: 216,
+                                                        lineNumber: 202,
                                                         columnNumber: 33
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 208,
+                                                lineNumber: 194,
                                                 columnNumber: 29
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -608,7 +545,7 @@ function TrackerContent() {
                                                             children: "Suggestions:"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/tracker/page.js",
-                                                            lineNumber: 228,
+                                                            lineNumber: 214,
                                                             columnNumber: 41
                                                         }, this),
                                                         suggestions.map((s, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -617,30 +554,30 @@ function TrackerContent() {
                                                                 children: s
                                                             }, i, false, {
                                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                                lineNumber: 230,
+                                                                lineNumber: 216,
                                                                 columnNumber: 45
                                                             }, this))
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/app/tracker/page.js",
-                                                    lineNumber: 227,
+                                                    lineNumber: 213,
                                                     columnNumber: 37
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 225,
+                                                lineNumber: 211,
                                                 columnNumber: 29
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 207,
+                                        lineNumber: 193,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/tracker/page.js",
-                                lineNumber: 202,
+                                lineNumber: 188,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -666,12 +603,12 @@ function TrackerContent() {
                                                     className: "w-32 h-32"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/tracker/page.js",
-                                                    lineNumber: 246,
+                                                    lineNumber: 232,
                                                     columnNumber: 41
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 245,
+                                                lineNumber: 231,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -683,7 +620,7 @@ function TrackerContent() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 248,
+                                                lineNumber: 234,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -691,7 +628,7 @@ function TrackerContent() {
                                                 children: typeof rankResult.position === 'string' && rankResult.position.includes('Found') ? 'HIT' : rankResult.position === '1000+' ? '> 1k' : `#${rankResult.position}`
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 249,
+                                                lineNumber: 235,
                                                 columnNumber: 37
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -699,23 +636,23 @@ function TrackerContent() {
                                                 children: rankResult.position === '1000+' ? "Not found in top results" : "Currently visible in charts"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 252,
+                                                lineNumber: 238,
                                                 columnNumber: 37
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 244,
+                                        lineNumber: 230,
                                         columnNumber: 33
                                     }, this)
                                 }, rankResult.term, false, {
                                     fileName: "[project]/src/app/tracker/page.js",
-                                    lineNumber: 243,
+                                    lineNumber: 229,
                                     columnNumber: 29
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/app/tracker/page.js",
-                                lineNumber: 241,
+                                lineNumber: 227,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -738,12 +675,12 @@ function TrackerContent() {
                                                 children: tab.label
                                             }, tab.id, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 267,
+                                                lineNumber: 253,
                                                 columnNumber: 33
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 262,
+                                        lineNumber: 248,
                                         columnNumber: 25
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -754,12 +691,12 @@ function TrackerContent() {
                                                 className: "w-6 h-6 animate-spin text-[var(--text-muted)]"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/tracker/page.js",
-                                                lineNumber: 279,
+                                                lineNumber: 265,
                                                 columnNumber: 76
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/app/tracker/page.js",
-                                            lineNumber: 279,
+                                            lineNumber: 265,
                                             columnNumber: 33
                                         }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
                                             initial: {
@@ -771,7 +708,7 @@ function TrackerContent() {
                                             className: "grid grid-cols-1 sm:grid-cols-2 gap-4",
                                             children: [
                                                 (activeTab === 'similar' ? similarApps : developerApps).map((app)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                                        href: `/tracker?appId=${app.appId}&title=${encodeURIComponent(app.title)}&icon=${encodeURIComponent(app.icon)}&developer=${encodeURIComponent(app.developer)}&country=${country}`,
+                                                        href: `/tracker?appId=${app.appId}&title=${encodeURIComponent(app.title)}&icon=${encodeURIComponent(app.icon)}&developer=${encodeURIComponent(app.developer)}`,
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                             className: "glass-card p-4 hover:border-blue-500/30 flex gap-3 items-center group",
                                                             children: [
@@ -780,7 +717,7 @@ function TrackerContent() {
                                                                     className: "w-10 h-10 rounded-lg bg-[var(--input-bg)]"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/src/app/tracker/page.js",
-                                                                    lineNumber: 285,
+                                                                    lineNumber: 271,
                                                                     columnNumber: 49
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -791,7 +728,7 @@ function TrackerContent() {
                                                                             children: app.title
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/tracker/page.js",
-                                                                            lineNumber: 287,
+                                                                            lineNumber: 273,
                                                                             columnNumber: 53
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -799,24 +736,24 @@ function TrackerContent() {
                                                                             children: app.developer
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/src/app/tracker/page.js",
-                                                                            lineNumber: 288,
+                                                                            lineNumber: 274,
                                                                             columnNumber: 53
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/src/app/tracker/page.js",
-                                                                    lineNumber: 286,
+                                                                    lineNumber: 272,
                                                                     columnNumber: 49
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/src/app/tracker/page.js",
-                                                            lineNumber: 284,
+                                                            lineNumber: 270,
                                                             columnNumber: 45
                                                         }, this)
                                                     }, app.appId, false, {
                                                         fileName: "[project]/src/app/tracker/page.js",
-                                                        lineNumber: 283,
+                                                        lineNumber: 269,
                                                         columnNumber: 41
                                                     }, this)),
                                                 (activeTab === 'similar' ? similarApps : developerApps).length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -824,30 +761,30 @@ function TrackerContent() {
                                                     children: "No data available."
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/tracker/page.js",
-                                                    lineNumber: 294,
+                                                    lineNumber: 280,
                                                     columnNumber: 41
                                                 }, this)
                                             ]
                                         }, activeTab, true, {
                                             fileName: "[project]/src/app/tracker/page.js",
-                                            lineNumber: 281,
+                                            lineNumber: 267,
                                             columnNumber: 33
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 277,
+                                        lineNumber: 263,
                                         columnNumber: 25
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/tracker/page.js",
-                                lineNumber: 261,
+                                lineNumber: 247,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/tracker/page.js",
-                        lineNumber: 199,
+                        lineNumber: 185,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -858,7 +795,7 @@ function TrackerContent() {
                                 children: "Recent Checks"
                             }, void 0, false, {
                                 fileName: "[project]/src/app/tracker/page.js",
-                                lineNumber: 304,
+                                lineNumber: 290,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -873,7 +810,7 @@ function TrackerContent() {
                                                     children: entry.term
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/tracker/page.js",
-                                                    lineNumber: 308,
+                                                    lineNumber: 294,
                                                     columnNumber: 33
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -881,13 +818,13 @@ function TrackerContent() {
                                                     children: entry.position
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/tracker/page.js",
-                                                    lineNumber: 309,
+                                                    lineNumber: 295,
                                                     columnNumber: 33
                                                 }, this)
                                             ]
                                         }, entry.id, true, {
                                             fileName: "[project]/src/app/tracker/page.js",
-                                            lineNumber: 307,
+                                            lineNumber: 293,
                                             columnNumber: 29
                                         }, this)),
                                     history.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -895,31 +832,31 @@ function TrackerContent() {
                                         children: "No history yet."
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/tracker/page.js",
-                                        lineNumber: 314,
+                                        lineNumber: 300,
                                         columnNumber: 50
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/tracker/page.js",
-                                lineNumber: 305,
+                                lineNumber: 291,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/tracker/page.js",
-                        lineNumber: 303,
+                        lineNumber: 289,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/tracker/page.js",
-                lineNumber: 197,
+                lineNumber: 183,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/tracker/page.js",
-        lineNumber: 165,
+        lineNumber: 151,
         columnNumber: 9
     }, this);
 }
@@ -931,22 +868,22 @@ function KeywordTrackerPage() {
                 className: "w-10 h-10 animate-spin text-[var(--text-muted)]"
             }, void 0, false, {
                 fileName: "[project]/src/app/tracker/page.js",
-                lineNumber: 324,
+                lineNumber: 310,
                 columnNumber: 72
             }, void 0)
         }, void 0, false, {
             fileName: "[project]/src/app/tracker/page.js",
-            lineNumber: 324,
+            lineNumber: 310,
             columnNumber: 29
         }, void 0),
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TrackerContent, {}, void 0, false, {
             fileName: "[project]/src/app/tracker/page.js",
-            lineNumber: 325,
+            lineNumber: 311,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/tracker/page.js",
-        lineNumber: 324,
+        lineNumber: 310,
         columnNumber: 9
     }, this);
 }

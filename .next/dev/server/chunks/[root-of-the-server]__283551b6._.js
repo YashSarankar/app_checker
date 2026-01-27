@@ -296,52 +296,24 @@ async function POST(request) {
                 status: 400
             });
         }
-        // Quantum Depth Logic: Patched to search up to 1000 positions
-        let finalPosition = '1000+';
+        // Search through top 250 apps for the keyword
+        let finalPosition = '250+';
         let foundRegion = null;
-        let isDeepFound = false;
-        const primaryResults = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$google$2d$play$2d$scraper$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].search({
+        const searchResults = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$google$2d$play$2d$scraper$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].search({
             term,
-            num: 1000,
+            num: 250,
             country,
             lang
         });
-        const pos = primaryResults.findIndex((item)=>item.appId === appId) + 1;
-        if (pos > 0) {
-            finalPosition = pos;
+        const position = searchResults.findIndex((item)=>item.appId === appId) + 1;
+        if (position > 0) {
+            finalPosition = position;
             foundRegion = country;
-            isDeepFound = true;
-        } else {
-            // Niche Permutation Scan: If invisible in Top 1000, find the closest entry point
-            const niches = [
-                `${term} app`,
-                `best ${term}`,
-                `${term} manager`,
-                `${term} tracker`
-            ].slice(0, 3);
-            for (const niche of niches){
-                try {
-                    const results = await __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$google$2d$play$2d$scraper$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].search({
-                        term: niche,
-                        num: 250,
-                        country,
-                        lang
-                    });
-                    const p = results.findIndex((item)=>item.appId === appId) + 1;
-                    if (p > 0) {
-                        finalPosition = `#${p} (found via "${niche}")`;
-                        foundRegion = country;
-                        isDeepFound = true;
-                        break;
-                    }
-                } catch (e) {}
-            }
         }
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             term,
             position: finalPosition,
             region: foundRegion,
-            isQuantumScan: !isDeepFound,
             timestamp: new Date().toISOString()
         });
     } catch (error) {

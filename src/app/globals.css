@@ -4,24 +4,13 @@
 
 @layer base {
     :root {
-        /* Default Dark Mode (Minimal) */
-        --bg-main: #05070a;
-        --text-main: #f8fafc;
-        --text-muted: #64748b;
-        --card-bg: rgba(255, 255, 255, 0.02);
-        --card-border: rgba(255, 255, 255, 0.05);
-        --input-bg: rgba(255, 255, 255, 0.03);
-        --accent: #2563eb;
-    }
-
-    .light-mode {
-        /* Minimal Light Mode */
+        /* Enforced Light Mode */
         --bg-main: #ffffff;
         --text-main: #0f172a;
         --text-muted: #64748b;
-        --card-bg: rgba(0, 0, 0, 0.02);
-        --card-border: rgba(0, 0, 0, 0.05);
-        --input-bg: rgba(0, 0, 0, 0.03);
+        --card-bg: #ffffff;
+        --card-border: #e2e8f0;
+        --input-bg: #f8fafc;
         --accent: #2563eb;
     }
 }

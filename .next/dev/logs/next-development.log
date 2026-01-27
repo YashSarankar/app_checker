@@ -8,3 +8,289 @@
 [00:13:52.930] Server  LOG     ✓ Compiled in 158ms
 [00:15:31.207] Server  LOG     ✓ Compiled in 173ms
 [00:17:10.613] Server  LOG     ✓ Compiled in 122ms
+[00:27:22.141] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:34:46.130] Server  LOG     ✓ Compiled in 140ms
+[00:38:14.019] Server  LOG     ✓ Compiled in 99ms
+[00:38:14.152] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:38:38.008] Server  LOG     ✓ Compiled in 124ms
+[00:38:38.116] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:38:40.054] Server  LOG     ✓ Compiled in 69ms
+[00:38:40.160] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:39:01.880] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:39:02.111] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:39:02.112] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:39:02.748] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:39:02.857] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:39:02.857] Browser ERROR   Failed to fetch details
+[00:39:02.857] Browser ERROR   Failed to fetch extra features
+[00:39:46.987] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:40:06.727] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:40:24.731] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:40:24.987] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:40:24.987] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:40:24.987] Browser ERROR   ./src/app/page.js:47:79
+Parsing ecmascript source code failed
+  45 |         setIsSearching(true)
+  46 |         try {
+> 47 |             const { data } = await axios.get(`/ api / apps / search ? term = ${ term } `)
+     |                                                                               ^
+  48 |             setSearchResults(data)
+  49 |         } catch (error) {
+  50 |             console.error('Search failed')
+
+Expected ':', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:40:24.987] Browser ERROR   Failed to fetch details
+[00:40:24.987] Browser ERROR   Failed to fetch extra features
+[00:44:41.306] Server  LOG     ✓ Compiled in 202ms
+[00:45:49.304] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:45:54.637] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:47:55.768] Server  LOG     ✓ Compiled in 159ms
+[00:48:14.510] Server  LOG     ✓ Compiled in 60ms
+[00:49:24.291] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:51:47.036] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:56:44.151] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:01:49.065] Server  LOG     ✓ Compiled in 136ms
+[01:05:52.251] Server  LOG     ✓ Compiled in 95ms
+[01:11:58.134] Server  LOG     ✓ Compiled in 80ms
+[01:12:28.225] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:14:27.210] Server  LOG     ✓ Compiled in 146ms
+[01:15:30.046] Server  LOG     ✓ Compiled in 209ms
+[01:15:43.506] Server  LOG     ✓ Compiled in 38ms
+[01:16:23.717] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:20:56.340] Server  LOG     ✓ Compiled in 52ms
+[01:22:59.896] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:24:40.403] Server  LOG     ✓ Compiled in 28ms
+[01:24:56.955] Server  LOG     ✓ Compiled in 32ms
+[01:25:23.003] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:35:03.060] Server  LOG     ✓ Compiled in 204ms
+[01:37:43.410] Server  LOG     ✓ Compiled in 227ms
+[01:39:36.706] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:40:14.343] Server  LOG     ✓ Compiled in 75ms
+[01:42:09.940] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:43:29.737] Server  LOG     ✓ Compiled in 102ms
+[01:43:37.953] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:44:03.169] Server  LOG     ✓ Compiled in 75ms
+[01:44:44.024] Server  LOG     ✓ Compiled in 66ms
+[30:59:04.452] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[31:10:49.112] Server  LOG     ✓ Compiled in 53ms
+[31:12:36.225] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[31:16:17.048] Server  LOG     ✓ Compiled in 259ms
+[31:16:26.550] Server  LOG     ✓ Compiled in 121ms
