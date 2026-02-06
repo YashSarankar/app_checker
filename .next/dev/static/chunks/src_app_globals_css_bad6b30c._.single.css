@@ -408,6 +408,18 @@ img, video {
   margin-top: 1rem;
 }
 
+.mt-1 {
+  margin-top: .25rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.block {
+  display: block;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -718,6 +730,10 @@ img, video {
   border-bottom-width: 1px;
 }
 
+.border-dashed {
+  border-style: dashed;
+}
+
 .border-\[var\(--card-border\)\] {
   border-color: var(--card-border);
 }
@@ -739,6 +755,16 @@ img, video {
 .border-slate-800 {
   --tw-border-opacity: 1;
   border-color: rgb(30 41 59 / var(--tw-border-opacity, 1));
+}
+
+.border-blue-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(219 234 254 / var(--tw-border-opacity, 1));
+}
+
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
 }
 
 .bg-\[var\(--bg\)\] {
@@ -803,13 +829,27 @@ img, video {
   background-color: rgb(254 249 195 / var(--tw-bg-opacity, 1));
 }
 
+.bg-white\/50 {
+  background-color: #ffffff80;
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
 
 .from-blue-500 {
   --tw-gradient-from: #3b82f6 var(--tw-gradient-from-position);
   --tw-gradient-to: #3b82f600 var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-blue-50 {
+  --tw-gradient-from: #eff6ff var(--tw-gradient-from-position);
+  --tw-gradient-to: #eff6ff00 var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -820,6 +860,10 @@ img, video {
 
 .to-pink-500 {
   --tw-gradient-to: #ec4899 var(--tw-gradient-to-position);
+}
+
+.to-purple-50 {
+  --tw-gradient-to: #faf5ff var(--tw-gradient-to-position);
 }
 
 .p-2 {
@@ -1117,6 +1161,16 @@ img, video {
   color: rgb(202 138 4 / var(--tw-text-opacity, 1));
 }
 
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+}
+
 .opacity-50 {
   opacity: .5;
 }
@@ -1320,6 +1374,10 @@ body {
 @media (min-width: 1024px) {
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .lg\:col-span-3 {
+    grid-column: span 3 / span 3;
   }
 
   .lg\:grid-cols-3 {

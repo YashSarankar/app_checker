@@ -41,3 +41,201 @@
 [00:30:24.896] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:30:45.521] Server  LOG     ✓ Compiled in 235ms
 [00:30:54.046] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:34:40.610] Server  LOG     ✓ Compiled in 165ms
+[00:34:55.583] Server  LOG     ✓ Compiled in 74ms
+[00:34:55.688] Browser ERROR   ./src/app/page.js:158:25
+Parsing ecmascript source code failed
+  156 |                         </div>
+  157 |
+> 158 |                         {/* Non-intrusive Banner Ad */}
+      |                         ^
+  159 |                     {savedApps.length > 0 && (
+  160 |                         <motion.div
+  161 |                             initial={{ opacity: 0 }}
+
+Expected '</', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:35:55.112] Browser ERROR   ./src/app/page.js:158:25
+Parsing ecmascript source code failed
+  156 |                         </div>
+  157 |
+> 158 |                         {/* Non-intrusive Banner Ad */}
+      |                         ^
+  159 |                     {savedApps.length > 0 && (
+  160 |                         <motion.div
+  161 |                             initial={{ opacity: 0 }}
+
+Expected '</', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:36:24.053] Browser ERROR   ./src/app/page.js:158:25
+Parsing ecmascript source code failed
+  156 |                         </div>
+  157 |
+> 158 |                         {/* Non-intrusive Banner Ad */}
+      |                         ^
+  159 |                     {savedApps.length > 0 && (
+  160 |                         <motion.div
+  161 |                             initial={{ opacity: 0 }}
+
+Expected '</', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:36:24.330] Browser ERROR   ./src/app/page.js:158:25
+Parsing ecmascript source code failed
+  156 |                         </div>
+  157 |
+> 158 |                         {/* Non-intrusive Banner Ad */}
+      |                         ^
+  159 |                     {savedApps.length > 0 && (
+  160 |                         <motion.div
+  161 |                             initial={{ opacity: 0 }}
+
+Expected '</', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:36:55.513] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:55.683] Browser ERROR   ./src/app/page.js:158:25
+Parsing ecmascript source code failed
+  156 |                         </div>
+  157 |
+> 158 |                         {/* Non-intrusive Banner Ad */}
+      |                         ^
+  159 |                     {savedApps.length > 0 && (
+  160 |                         <motion.div
+  161 |                             initial={{ opacity: 0 }}
+
+Expected '</', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:36:55.683] Browser ERROR   ./src/app/page.js:158:25
+Parsing ecmascript source code failed
+  156 |                         </div>
+  157 |
+> 158 |                         {/* Non-intrusive Banner Ad */}
+      |                         ^
+  159 |                     {savedApps.length > 0 && (
+  160 |                         <motion.div
+  161 |                             initial={{ opacity: 0 }}
+
+Expected '</', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:37:25.568] Browser ERROR   ./src/app/page.js:156:21
+Parsing ecmascript source code failed
+  154 |                                 </motion.div>
+  155 |                             ))}\n                        </div>
+> 156 |                     \n                        {/* Non-intrusive Banner Ad */}
+      |                     ^
+  157 |                     {savedApps.length > 0 && (
+  158 |                         <motion.div
+  159 |                             initial={{ opacity: 0 }}
+
+Expected unicode escape
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:37:54.776] Browser ERROR   ./src/app/page.js:158:25
+Parsing ecmascript source code failed
+  156 |                         </div>
+  157 |
+> 158 |                         {/* Non-intrusive Banner Ad */}
+      |                         ^
+  159 |                     {savedApps.length > 0 && (
+  160 |                         <motion.div
+  161 |                             initial={{ opacity: 0 }}
+
+Expected '</', got '{'
+
+Import traces:
+  Client Component Browser:
+    ./src/app/page.js [Client Component Browser]
+    ./src/app/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/page.js [Client Component SSR]
+    ./src/app/page.js [Server Component]
+[00:38:58.422] Server  LOG     ✓ Compiled in 48ms
+[00:41:02.303] Server  LOG     ✓ Compiled in 85ms
+[00:41:02.409] Browser ERROR   ./src/app/tracker/page.js:337:10
+Parsing ecmascript source code failed
+  335 |             </div>
+  336 |         </div>
+> 337 |         </div >
+      |          ^^^^^^
+  338 |     )
+  339 | }
+  340 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./src/app/tracker/page.js [Client Component Browser]
+    ./src/app/tracker/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/tracker/page.js [Client Component SSR]
+    ./src/app/tracker/page.js [Server Component]
+[00:41:18.009] Browser ERROR   uncaughtError: ReferenceError: BannerAd is not defined
+[00:41:46.579] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:41:46.904] Server  ERROR   ⨯ ReferenceError: BannerAd is not defined
+[00:41:46.910] Server  LOG     ✓ Compiled in 99ms
+[00:41:46.910] Browser ERROR   uncaughtError: ReferenceError: BannerAd is not defined
+[00:41:47.179] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:41:47.317] Browser ERROR   uncaughtError: ReferenceError: BannerAd is not defined
+[00:42:18.602] Server  ERROR   ⨯ ReferenceError: BannerAd is not defined
+[00:42:18.774] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:42:18.891] Browser ERROR   uncaughtError: ReferenceError: BannerAd is not defined
+[00:42:34.698] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:42:34.706] Server  LOG     ✓ Compiled in 106ms
+[00:42:35.246] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold

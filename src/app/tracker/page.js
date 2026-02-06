@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
+import { SidebarAd, InlineAd, BannerAd } from '@/components/AdUnit'
 
 function TrackerContent() {
     const searchParams = useSearchParams()
@@ -188,9 +189,14 @@ function TrackerContent() {
                     </div>
                 </header>
 
+                {/* Horizontal Ad - High Visibility */}
+                <div className="mb-6">
+                    <BannerAd />
+                </div>
+
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     {/* Main Content */}
-                    <div className="lg:col-span-2 space-y-6">
+                    <div className="lg:col-span-3 space-y-6">
                         {/* Keyword Tracker */}
                         <div className="glass-card p-6 md:p-8">
                             <div className="flex items-center justify-between mb-6">
@@ -269,10 +275,19 @@ function TrackerContent() {
                                 </motion.div>
                             )}
                         </AnimatePresence>
-                    </div>
 
-                    {/* Sidebar */}
-                    <div className="space-y-6">
+                        {/* Non-intrusive Inline Ad */}
+                        {rankResult && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.3 }}
+                            >
+                                <InlineAd />
+                            </motion.div>
+                        )}
+
+                        {/* Recent History - Moved from sidebar */}
                         <div className="glass-card p-6">
                             <div className="flex items-center justify-between mb-4">
                                 <h3 className="text-base font-semibold text-[var(--text-main)]">Recent History</h3>
