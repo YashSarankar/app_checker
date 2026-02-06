@@ -55,10 +55,10 @@ export default function AppSelectionPage() {
                     <div className="flex items-center justify-between mb-8">
                         <div>
                             <h1 className="text-4xl font-semibold text-[var(--text-main)] mb-2 tracking-tight">
-                                Apps
+                                AppRank Pro
                             </h1>
                             <p className="text-[var(--text-muted)] text-base">
-                                {savedApps.length} {savedApps.length === 1 ? 'app' : 'apps'} tracked
+                                ASO Utility &bull; {savedApps.length} {savedApps.length === 1 ? 'app' : 'apps'} tracked
                             </p>
                         </div>
                         <Link

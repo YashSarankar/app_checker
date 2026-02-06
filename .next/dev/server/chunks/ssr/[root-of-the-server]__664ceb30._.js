@@ -41,8 +41,59 @@ var __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$i
 ;
 ;
 const metadata = {
-    title: 'AppRank Tracker',
-    description: 'Track your Google Play Store keyword rankings with ease.'
+    title: {
+        default: 'AppRank Pro - ASO Keyword Ranking Tracker for Google Play',
+        template: '%s | AppRank Pro'
+    },
+    description: 'Boost your app visibility with AppRank Pro. The ultimate ASO tool to track Google Play Store keyword rankings, monitor competitors, and optimize global app store performance.',
+    applicationName: 'AppRank Pro',
+    keywords: [
+        'ASO tool',
+        'app store optimization',
+        'keyword rank tracker',
+        'google play ranking',
+        'android app seo',
+        'app ranking checker',
+        'mobile app marketing',
+        'play store keywords',
+        'app store keywords',
+        'track app ranking'
+    ],
+    authors: [
+        {
+            name: 'AppRank Pro Team'
+        }
+    ],
+    creator: 'AppRank Pro',
+    publisher: 'AppRank Pro',
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false
+    },
+    openGraph: {
+        title: 'AppRank Pro - #1 ASO Keyword Tracker',
+        description: 'Track your Google Play Store keyword rankings and boost your organic downloads with AppRank Pro.',
+        siteName: 'AppRank Pro',
+        locale: 'en_US',
+        type: 'website'
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'AppRank Pro - ASO Keyword Tracker',
+        description: 'Track Google Play Store rankings instantly.'
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1
+        }
+    }
 };
 function RootLayout({ children }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("html", {
@@ -54,17 +105,17 @@ function RootLayout({ children }) {
                 children: children
             }, void 0, false, {
                 fileName: "[project]/src/app/layout.js",
-                lineNumber: 15,
+                lineNumber: 62,
                 columnNumber: 17
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/app/layout.js",
-            lineNumber: 14,
+            lineNumber: 61,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/layout.js",
-        lineNumber: 13,
+        lineNumber: 60,
         columnNumber: 9
     }, this);
 }
