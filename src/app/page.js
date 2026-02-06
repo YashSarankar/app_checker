@@ -155,6 +155,19 @@ export default function AppSelectionPage() {
                         </div>
                     )}
                 </AnimatePresence>
+
+                {/* Footer with Privacy Policy */}
+                <footer className="mt-20 pt-8 border-t border-white/10 text-center">
+                    <div className="flex flex-col items-center gap-4">
+                        <div className="flex items-center gap-6 text-sm font-medium text-[var(--text-muted)]">
+                            <Link href="/privacy" className="hover:text-blue-500 transition-colors">Privacy Policy</Link>
+                            <a href="mailto:support@sarankar.com" className="hover:text-blue-500 transition-colors">Contact Support</a>
+                        </div>
+                        <p className="text-xs text-[var(--text-muted)]">
+                            &copy; 2026 AppRank Pro. All rights reserved.
+                        </p>
+                    </div>
+                </footer>
             </div>
         </div>
     )

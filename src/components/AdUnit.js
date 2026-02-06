@@ -5,20 +5,21 @@ import React from 'react'
 export default function AdUnit({ slot, format = 'auto', style = {} }) {
     return (
         <div className="ad-container glass-card p-4 flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-100" style={style}>
-            <div className="text-center">
+            <div className="text-center w-full">
                 <p className="text-xs text-gray-400 mb-2">Advertisement</p>
-                <div className="text-sm text-gray-500">
-                    {/* Replace with actual AdSense code */}
-                    {/* <ins className="adsbygoogle"
-                         style={{ display: 'block' }}
-                         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                         data-ad-slot={slot}
-                         data-ad-format={format}
-                         data-full-width-responsive="true"></ins> */}
-                    <div className="bg-white/50 rounded-lg p-8 border border-dashed border-gray-300">
-                        <p className="text-gray-400 font-medium">Ad Space {slot}</p>
-                        <p className="text-xs text-gray-400 mt-1">Connect AdSense</p>
-                    </div>
+                <div className="text-sm text-gray-500 min-h-[50px] flex items-center justify-center">
+                    {/* Real AdSense Unit */}
+                    <ins className="adsbygoogle"
+                        style={{ display: 'block' }}
+                        data-ad-client="ca-pub-9441953606119572"
+                        data-ad-slot={slot}
+                        data-ad-format={format}
+                        data-full-width-responsive="true"></ins>
+
+                    {/* We need to trigger the ad load after component mounts */}
+                    <script dangerouslySetInnerHTML={{
+                        __html: `(adsbygoogle = window.adsbygoogle || []).push({});`
+                    }} />
                 </div>
             </div>
         </div>
