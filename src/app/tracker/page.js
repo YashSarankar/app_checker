@@ -226,7 +226,7 @@ function TrackerContent() {
                                     <button
                                         type="submit"
                                         disabled={isCheckingRank || !keyword.trim()}
-                                        className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-[var(--input-bg)] disabled:text-[var(--text-muted)] text-white rounded-xl font-medium transition-colors shadow-lg shadow-blue-600/20"
+                                        className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-[var(--input-bg)] disabled:text-[var(--text-muted)] text-white rounded-lg font-medium transition-colors shadow-lg shadow-blue-600/20 h-[42px] flex items-center justify-center"
                                     >
                                         {isCheckingRank ? <Loader2 className="w-5 h-5 animate-spin" /> : "Check"}
                                     </button>

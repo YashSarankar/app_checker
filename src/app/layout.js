@@ -59,9 +59,10 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <body className={inter.className}>
-                <div className="max-w-4xl mx-auto px-4 py-8">
-                    {/* Global Navigation - Kept empty as per user request for home screen */}
-                    {children}
+                <div className="min-h-screen py-8 px-4 flex justify-center items-start">
+                    <div className="w-full max-w-6xl">
+                        {children}
+                    </div>
                 </div>
             </body>
         </html>

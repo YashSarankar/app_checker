@@ -18,3 +18,26 @@
 [00:10:51.524] Server  WARN    ⚠ Fast Refresh had to perform a full reload due to a runtime error.
 [00:10:51.857] Server  LOG     ✓ Compiled in 62ms
 [00:10:52.021] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:06.710] Server  LOG     ✓ Compiled in 223ms
+[00:14:36.986] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:55.212] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:15.363] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:21.680] Server  LOG     ✓ Compiled in 69ms
+[00:19:31.349] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:34.978] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:45.354] Server  LOG     ✓ Compiled in 86ms
+[00:23:34.262] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:16.072] Server  LOG     ✓ Compiled in 102ms
+[00:25:28.195] Server  LOG     ✓ Compiled in 219ms
+[00:26:06.675] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:26:14.958] Server  LOG     ✓ Compiled in 171ms
+[00:26:24.547] Server  LOG     ✓ Compiled in 197ms
+[00:26:28.028] Server  LOG     ✓ Compiled in 195ms
+[00:27:04.828] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:16.419] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:27.984] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:16.983] Server  LOG     ✓ Compiled in 73ms
+[00:30:15.894] Server  LOG     ✓ Compiled in 218ms
+[00:30:24.896] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:30:45.521] Server  LOG     ✓ Compiled in 235ms
+[00:30:54.046] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
