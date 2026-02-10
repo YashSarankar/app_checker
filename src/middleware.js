@@ -24,11 +24,5 @@ export default async function middleware(req) {
         return NextResponse.rewrite(url)
     }
 
-    // rewrite root path for amozea subdomain
-    if (hostname.startsWith("amozea") && (url.pathname === "/" || url.pathname === "")) {
-        url.pathname = "/amozea"
-        return NextResponse.rewrite(url)
-    }
-
     return NextResponse.next()
 }
