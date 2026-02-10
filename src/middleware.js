@@ -16,11 +16,17 @@ export const config = {
 
 export default async function middleware(req) {
     const url = req.nextUrl
-    const hostname = req.headers.get("host") || "rank.sarankar.com" // Get hostname (e.g. 'rank.sarankar.com' or 'snapplay.sarankar.com')
+    const hostname = req.headers.get("host")
 
     // rewrite root path for snapplay subdomain
     if (hostname.startsWith("snapplay") && (url.pathname === "/" || url.pathname === "")) {
         url.pathname = "/snapplay"
+        return NextResponse.rewrite(url)
+    }
+
+    // rewrite root path for amozea subdomain
+    if (hostname.startsWith("amozea") && (url.pathname === "/" || url.pathname === "")) {
+        url.pathname = "/amozea"
         return NextResponse.rewrite(url)
     }
 
