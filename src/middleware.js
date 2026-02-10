@@ -18,11 +18,5 @@ export default async function middleware(req) {
     const url = req.nextUrl
     const hostname = req.headers.get("host")
 
-    // rewrite root path for snapplay subdomain
-    if (hostname.startsWith("snapplay") && (url.pathname === "/" || url.pathname === "")) {
-        url.pathname = "/snapplay"
-        return NextResponse.rewrite(url)
-    }
-
     return NextResponse.next()
 }
